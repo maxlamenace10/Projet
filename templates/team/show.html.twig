@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<form method="post" action="{{ path('team_delete', {'teamId': team.id}) }}">
+		<input type="hidden" name="_method" value="DELETE">
+		<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ team.id) }}">
+		<button type="submit">Supprimer l'équipe</button>
+	</form>
+
+	<h2>Liste des joueurs de l'équipe :</h2>
+	<ul class="flex-container">
+		{% for user in teamPlayers %}
+			<article class="player">
+				<a href="{{ path('app_user_show', { 'id': user.id }) }}" class="image">
+					<figure class="figure">
+						<picture class="picture">
+							<img class="img" src="{{ asset('path/to/your/image.jpg') }}" alt="{{ user.firstName }}" title="TeamStatsTracker">
+						</picture>
+						<figcaption class="caption">
+							<h3 class="name">{{ user.firstName }}
+								<b>{{ user.lastName }}</b>
+							</h3>
+							{# <p class="role">{{ user.role }}</p> #}
+						</figcaption>
+					</figure>
+				</a>
+				<form method="post" action="{{ path('team_remove_player', { 'teamId': team.id, 'userId': user.id }) }}" class="form">
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+					<button type="submit">Supprimer</button>
+				</form>
+			</article>
+		{% endfor %}
+	</ul>
+
+	<h2>Joueurs sans équipe</h2>
+	{% for user in users %}
+		<article class="noteam">
+			<h3>{{ user.firstName }}</h3>
+			<form method="post" action="/team/{{ team.id }}/add-player/{{ user.id }}" class="add-player-form">
+				<input type="hidden" name="_method" value="POST">
+				<input type="hidden" name="_token" value="{{ csrf_token('add' ~ user.id) }}">
+				<button type="submit">Ajouter le joueur à l'équipe</button>
+			</form>
+		</article>
+	{% endfor %}
+
+
+	<script>
+		function addPlayerToTeam(teamId, userId) {
+fetch(`/team/${teamId}/add-player/${userId}`, {method: 'POST'}).then(response => response.json()).then(data => {
+if (data.success) {
+alert('Joueur ajouté avec succès à l\'équipe');
+} else {
+alert('Erreur lors de l\'ajout du joueur à l\'équipe');
+}
+}).catch((error) => {
+console.error('Erreur:', error);
+});
+}
+	</script>
+{% endblock %}

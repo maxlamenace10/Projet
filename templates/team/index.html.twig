@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des équipes
+{% endblock %}
+
+{% block body %}
+	<div class='head'>
+		<h2>Liste des équipes</h2>
+		{% if is_granted('ROLE_COACH') %}
+			<a href="{{ path('team_new') }}" class="btn btn-primary">Créer une équipe</a>
+		{% endif %}
+	</div>
+
+	{% for team in teams %}
+		<article class='training'>
+			<h4>{{ team.teamName }}</h4>
+			{% if app.user and is_granted('ROLE_COACH') %}
+				<a href="{{ path('team_show', {'id': team.id}) }}">voir l'equipe</a>
+
+				{% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('team_edit', {'id': team.id}) }}">modifier l'equipe</a>
+				{% endif %}
+
+			{% endif %}
+		</article>
+	{% else %}
+		<p>Aucune équipe trouvée.</p>
+	{% endfor %}
+
+{% endblock %}

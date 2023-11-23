@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta
+		charset="UTF-8">
+		{# <meta name="viewport" content="width=device-width, initial-scale=1"> #}
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<script src="{{ asset('assets/app.js') }}"></script>
+
+			<link rel="stylesheet" href="{{ asset('app.css') }}">
+		{% endblock %}
+	</head>
+
+	{% block nav %}
+		<nav class="navbar">
+			<a class='title' href="{{ path('app_main') }}">
+				<div class="logo-container">
+					<img class="logo" src="{{ asset('image/logo.png') }}" alt="logo">
+					<h1>TeamStatsTracker</h1>
+				</div>
+			</a>
+			<ul class="nav-links">
+				{% if app.user %}
+					<li>
+						<a href="{{ path('app_logout') }}">Se déconnecter</a>
+					</li>
+					<li>
+						<a href="{{ path('app_training_session') }}">Entrainement</a>
+					</li>
+					<li>
+						<a href="{{ path('team_index') }}">Vos equipes</a>
+					</li>
+					<li>
+						<a href="{{ path('app_user_edit', {id: app.user.id}) }}">Modifier le profil</a>
+					</li>
+				{% else %}
+					<li>
+						<a href="{{ path('app_register') }}">Creer un compte</a>
+					</li>
+					<li>
+						<a href="{{ path('app_login') }}">Se connecter</a>
+					</li>
+				{% endif %}
+			</ul>
+		</nav>
+	{% endblock %}
+
+
+	{% block body %}
+		<div class="teams">
+			<h2>Équipes</h2>
+			{% for team in teams %}
+				<div class="team">
+					{{ team.teamName }}
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class="training-sessions-index">
+			<h2>Sessions d'entraînement</h2>
+			{% for session in trainingSessions %}
+				<div class="session-index">
+					{{ session.date|date('Y-m-d H:i:s') }}
+				</div>
+			{% endfor %}
+		</div>
+	</html>
+</div>{% endblock %}{% block footer %}
+<footer>
+	<div class="footer-content">
+		<p>© 2023 Mon Site. Tous droits réservés.</p>
+	</div>
+</footer>{% endblock %}</body></html>

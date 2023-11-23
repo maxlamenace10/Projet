@@ -1,0 +1,96 @@
+@startuml
+
+class TrainingSession {
+  - sessionNumber: int
+  - date: Date
+  - expectedAttendance: int
+  - actualAttendance: int
+  - actualAbsences: int
+  - actualDelays: int
+  - presenceList: List<String>
+  - absenceList: List<String>
+  - delayList: List<String>
+  + getExpectedAttendance(): int
+  + setExpectedAttendance(expectedAttendance: int): void
+  + getActualAttendance(): int
+  + setActualAttendance(actualAttendance: int): void
+  + getActualAbsences(): int
+  + setActualAbsences(actualAbsences: int): void
+  + getActualDelays(): int
+  + setActualDelays(actualDelays: int): void
+  + addPresence(presence: String): void
+  + removePresence(presence: String): void
+  + addAbsence(absence: String): void
+  + removeAbsence(absence: String): void
+  + addDelay(delay: String): void
+  + removeDelay(delay: String): void
+}
+
+@enduml
+
+class Player {
+  - playerName: String
+  - playerID: int
+  - weight: float
+  - height: float
+  - goal: int
+  - assist: int
+  - matchesPlayed: int
+  - delays: int
+  - absences: int
+  - presences: int
+  + getPlayerName(): String
+  + setPlayerName(name: String): void
+  + getWeight(): float
+  + setWeight(weight: float): void
+  + getHeight(): float
+  + setHeight(height: float): void
+  + getGoal(): int
+  + setGoal(goal: int): void
+  + getAssist(): int
+  + setAssist(assist: int): void
+  + getMatchesPlayed(): int
+  + setMatchesPlayed(matchesPlayed: int): void
+  + getDelays(): int
+  + setDelays(delays: int): void
+  + getAbsences(): int
+  + setAbsences(absences: int): void
+  + getPresences(): int
+  + setPresences(presences: int): void
+}
+
+@startuml
+
+class TrainingSession {
+  - sessionNumber: int
+  - date: Date
+  - expectedAttendance: int
+  - actualAttendance: int
+  - actualAbsences: int
+  - actualDelays: int
+  - presenceList: List<String>
+  - absenceList: List<String>
+  - delayList: List<String>
+  + getExpectedAttendance(): int
+  + setExpectedAttendance(expectedAttendance: int): void
+  + getActualAttendance(): int
+  + setActualAttendance(actualAttendance: int): void
+  + getActualAbsences(): int
+  + setActualAbsences(actualAbsences: int): void
+  + getActualDelays(): int
+  + setActualDelays(actualDelays: int): void
+  + addPresence(presence: String): void
+  + removePresence(presence: String): void
+  + addAbsence(absence: String): void
+  + removeAbsence(absence: String): void
+  + addDelay(delay: String): void
+  + removeDelay(delay: String): void
+  + getPresenceList(): List<String>
+  + getAbsenceList(): List<String>
+  + getDelayList(): List<String>
+}
+
+@enduml
+
+
+@enduml

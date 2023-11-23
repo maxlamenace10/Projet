@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h2>Nouvelle statistique d'entraînement</h2>
+
+	<div class="form-container">
+		<h3>Liste des joueurs de l'équipe :</h3>
+
+		<div class='statistic-form'>
+			{{ form_start(forms[0]) }}
+			<table>
+				<thead>
+					<tr>
+						<th>Joueur</th>
+						<th>Retard</th>
+						<th>Présent</th>
+						<th>Absent</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for form in forms %}
+						<tr>
+							<td>
+								{{ form.vars.value.user.firstName }}
+								{# Affiche le prénom du joueur #}
+							</td>
+							<td>
+								{{ form_widget(form.actualDelay, {'id': 'actualDelay' ~ loop.index}) }}
+							</td>
+							<td>
+								{{ form_widget(form.actualPresence, {'id': 'actualPresence' ~ loop.index}) }}
+							</td>
+							<td>
+								{{ form_widget(form.actualAbsence, {'id': 'actualAbsence' ~ loop.index}) }}
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			<div class="submit-button">
+				<button type="submit">Enregistrer</button>
+			</div>
+			{{ form_end(forms[0]) }}
+		</div>
+	</div>
+	<script>
+		{% for form in forms %}
+document.getElementById('actualDelay  {{ loop.index }}').addEventListener('change', function () {
+if (this.checked) {
+document.getElementById('actualPresence  {{ loop.index }}').checked = true;
+document.getElementById('actualAbsence  {{ loop.index }}').disabled = true;
+} else {
+document.getElementById('actualAbsence  {{ loop.index }}').disabled = false;
+}
+});
+
+document.getElementById('actualPresence  {{ loop.index }}').addEventListener('change', function () {
+if (this.checked) {
+document.getElementById('actualAbsence  {{ loop.index }}').disabled = true;
+}
+});{% endfor %}
+	</script>
+{% endblock %}

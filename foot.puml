@@ -1,0 +1,147 @@
+@startuml
+
+class Team {
+  - teamName: String
+  - teamID: int
+  - players: List<Player>
+  - coaches: List<Coach>
+}
+
+class Player {
+  - playerName: String
+  - playerID: int
+  - weight: float
+  - height: float
+  - position: String
+  - profilePicture: String  // Chemin vers la photo de profil du joueur
+  + getPlayerName(): String
+  + setPlayerName(name: String): void
+  + getWeight(): float
+  + setWeight(weight: float): void
+  + getHeight(): float
+  + setHeight(height: float): void
+  - trainingStatistics: List<StatisticTraining>
+  + getPosition(): String
+  + setPosition(position: String): void
+  + getProfilePicture(): String  // Méthode pour obtenir le chemin de la photo de profil
+  + setProfilePicture(profilePicture: String): void  // Méthode pour définir le chemin de la photo de profil
+}
+
+class TrainingSession {
+  - sessionNumber: int
+  - date: Date
+  - expectedAttendance: int
+  - actualAttendance: int
+  - trainingStatistics: List<StatisticTraining>
+  + getSessionNumber(): int
+  + setSessionNumber(sessionNumber: int): void
+  + getDate(): Date
+  + setDate(date: Date): void
+  + getExpectedAttendance(): int
+  + setExpectedAttendance(expectedAttendance: int): void
+  + getActualAttendance(): int
+  + setActualAttendance(actualAttendance: int): void
+  + addTrainingStatistic(statistic: StatisticTraining): void
+  + removeTrainingStatistic(statistic: StatisticTraining): void
+  + getTrainingStatistics(): List<StatisticTraining>
+}
+
+
+
+class Match {
+  - matchID: int
+  - team1: Team
+  - team2: Team
+  - score : int
+  + getTeam1(): Team
+  + setTeam1(team: Team): void
+  + getTeam2(): Team
+  + setTeam2(team: Team): void
+}
+
+class Coach {
+  - coachName: String
+  - coachID: int
+  - profilePicture: String
+  + getCoachName(): String
+  + setCoachName(coachName: String): void
+  + createMatch(match: Match): void
+  + updateMatch(match: Match): void
+  + createTrainingSession(session: TrainingSession): void
+  + updateTrainingSession(session: TrainingSession): void
+  + addPlayer(player: Player): void
+  + removePlayer(player: Player): void
+  + getPlayers(): List<Player>
+}
+
+class Statistic {
+  ' - player_id: int
+  ' - match_id: int
+  - presence: boolean
+  - goals: int
+  - assists: int
+  - minutesPlayed: int
+  - win: boolean
+  - loss: boolean
+  - draw: boolean
+  - dom : bool 
+  - ext : bool
+  + getPlayer_id(): int
+  + setPlayer_id(player_id: int): void
+  + getMatch_id(): int
+  + setMatch_id(match_id: int): void
+  + isPresence(): boolean
+  + setPresence(presence: boolean): void
+  + getGoals(): int
+  + setGoals(goals: int): void
+  + getAssists(): int
+  + setAssists(assists: int): void
+  + getMinutesPlayed(): int
+  + setMinutesPlayed(minutesPlayed: int): void
+  + isWin(): boolean
+  + setWin(win: boolean): void
+  + isLoss(): boolean
+  + setLoss(loss: boolean): void
+  + isDraw(): boolean
+  + setDraw(draw: boolean): void
+}
+
+class StatisticTraining {
+  ' - player_id: int
+  - session_id: int
+  - expectedDelay: int
+  - expectedPresence: boolean
+  - expectedAbsence: boolean
+  - actualDelay: int
+  - actualPresence: boolean
+  - actualAbsence: boolean
+  + getPlayer_id(): int
+  + setPlayer_id(player_id: int): void
+  + getSession_id(): int
+  + setSession_id(session_id: int): void
+  + getExpectedDelay(): int
+  + setExpectedDelay(expectedDelay: int): void
+  + isExpectedPresence(): boolean
+  + setExpectedPresence(expectedPresence: boolean): void
+  + isExpectedAbsence(): boolean
+  + setExpectedAbsence(expectedAbsence: boolean): void
+  + getActualDelay(): int
+  + setActualDelay(actualDelay: int): void
+  + isActualPresence(): boolean
+  + setActualPresence(actualPresence: boolean): void
+  + isActualAbsence(): boolean
+  + setActualAbsence(actualAbsence: boolean): void
+}
+
+
+Team "1" -- "*" Player : contains
+Team "1" -- "3" Coach : has coaches
+Team "1" -- "*" Match : participates
+Team "1" -- "*" TrainingSession : conducts
+Match "0..*" -- "0..*" Player : players played
+Match "1" -- "*" Statistic : has statistics
+Player "1" -- "*" Statistic : has statistics
+Player "1" -- "*" StatisticTraining : has training statistics
+TrainingSession "1" -- "*" StatisticTraining : has training statistics
+Coach "1" -- "1" Team : coaches
+@enduml

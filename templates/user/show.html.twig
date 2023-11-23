@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Details{% endblock %}
+
+{% block body %}
+<div class="card">
+	<div class="card-body">
+		<h2>Informations personnelles</h2>
+		<p>Lastname: {{ user.lastname }}</p>
+		<p>Firstname: {{ user.firstname }}</p>
+		<p>Role: {{ user.position }}</p>
+		<p>Poids: {{user.weight}}</p>
+		<p>Taille: {{user.height}}</p>
+
+		{% set total = 0 %}
+		{% set totalPresence = 0 %}
+		{% set totalAbsence = 0 %}
+		{% for statistic in user.trainingStatistics %}
+			{% set total = total + statistic.actualDelay %}
+			{% set totalPresence = totalPresence + (statistic.actualPresence ?? 0) %}
+			{% set totalAbsence = totalAbsence + (statistic.actualAbsence ?? 0) %}
+		{% endfor %}
+		<p>Total des retards : {{ total }}</p>
+		<p>Total des présences : {{ totalPresence }}</p>
+		<p>Total des absences : {{ totalAbsence }}</p>
+	</div>
+</div>
+{% endblock %}

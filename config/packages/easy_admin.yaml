@@ -1,0 +1,21 @@
+easy_admin:
+  entities:
+    User:
+      class: App\Entity\User
+      form:
+        fields:
+          - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'Admin': 'ROLE_COACH', 'User': 'ROLE_USER',  } } }
+  # ...
+  design:
+    # ...
+    menu:
+      - { label: 'Dashboard', route: 'admin_dashboard', role: 'ROLE_COACH' }
+      - { label: 'Users', route: 'admin_user', role: 'ROLE_ADMIN' }
+      - { label: 'Posts', route: 'admin_post', role: 'ROLE_ADMIN' }
+      # Ajoutez d'autres éléments de menu pour les fonctionnalités administratives
+
+security:
+  # ...
+  role_hierarchy:
+    ROLE_ADMIN:       ROLE_USER
+    ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]

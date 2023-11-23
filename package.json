@@ -1,0 +1,25 @@
+{
+  "name": "foot_statt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
+  "devDependencies": {
+    "@symfony/stimulus-bridge": "^3.2.2",
+    "@symfony/webpack-encore": "^1.0.0",
+    "webpack-notifier": "^1.15.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.33.3"
+  }
+}

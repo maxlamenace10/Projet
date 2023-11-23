@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TrainingSessionController!
+{% endblock %}
+
+{% block body %}
+	<h2>Liste des sessions d'entraînement</h2>
+
+	<div class="new-training">
+		{% if is_granted('ROLE_COACH') %}
+			<a href="{{ path('app_training_session_new') }}">Créer une session d'entraînement</a>
+		{% endif %}
+	</div>
+
+	<div class="sessions-container">
+
+		{% dump(training_sessions ) %}
+		{% if training_sessions is not defined %}
+			<p>Aucune session de formation n'a été trouvée.</p>
+		{% else %}
+			{% for session in training_sessions %}
+				<div class="session-card">
+					<h3>Entrainement :
+						{{ session.sessionNumber }}</h3>
+					<p>Date :
+						{{ session.date|date('Y-m-d H:i:s') }}</p>
+					<p>Equipe :
+						{{ session.team.teamName }}</p>
+					{% if is_granted('ROLE_COACH') %}
+						<a href="{{ path('app_training_session_edit', {id: session.id}) }}" class="btn btn-primary">Modifier</a>
+						<a href="{{ path('app_training_session_delete', {id: session.id}) }}" class="btn btn-danger">Supprimer</a>
+					{% endif %}
+					<a href="{{ path('app_training_session_show', {id: session.id}) }}" class="btn btn-success">Voir</a>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+{% endblock %}
