@@ -87,10 +87,7 @@ ul.flex-container li {
 }
 
 .nav-links {
-<<<<<<< Updated upstream
-=======
     width: 35%;
->>>>>>> Stashed changes
     display: flex;
     gap: 20px;
 }
@@ -104,13 +101,9 @@ ul.flex-container li {
     text-decoration: none;
     padding: 1rem;
     transition: color 0.3s ease;
-<<<<<<< Updated upstream
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-=======
     box-shadow: none;
     font-size: 70%;
     /* width: 0%; */
->>>>>>> Stashed changes
 }
 
 .nav-links a:hover {
@@ -148,8 +141,6 @@ article {
     background-color: var(--third-color);
 }
 
-<<<<<<< Updated upstream
-=======
 .contain {
     display: flex;
     flex-wrap: nowrap;
@@ -189,7 +180,6 @@ article {
     margin-left: auto;
 }
 
->>>>>>> Stashed changes
 .inline-form {
     display: inline;
 }
@@ -222,15 +212,9 @@ button {
 }
 
 .session-card {
-<<<<<<< Updated upstream
-    margin-bottom: 20px;
-    border: 1px solid var(--second-color);
-    padding: 5px;
-=======
     margin-bottom: 2%;
     border: 1px solid var(--second-color);
     padding: 4%;
->>>>>>> Stashed changes
     text-align: center;
     border-radius: 25px;
 }
@@ -251,8 +235,6 @@ button {
     justify-content: space-between;
 }
 
-<<<<<<< Updated upstream
-=======
 
 .formId {
     display: flex;
@@ -269,7 +251,6 @@ button {
     align-items: center;
 }
 
->>>>>>> Stashed changes
 .training-session-form {
     background-color: var(--fourth-color);
     padding: 20px;
@@ -313,36 +294,21 @@ a.title {
     background-color: var(--fourth-color);
     font-weight: bold;
 }
-<<<<<<< Updated upstream
-article.player {
-    width: 30%;
-    margin: 10px;
-    padding: 10px;
-=======
 
 li.player {
     width: 27%;
     margin: 1%;
     padding: 1%;
->>>>>>> Stashed changes
     border: 1px solid var(--second-color);
     border-radius: 5px;
 }
 .container {
-<<<<<<< Updated upstream
-    width: 80%;
-    margin: auto;
-}
-
-.teams{
-=======
     width: 90%;
     margin: auto;
 }
 
 .teams {
     margin: auto;
->>>>>>> Stashed changes
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -351,13 +317,8 @@ li.player {
     width: 40%;
 }
 
-<<<<<<< Updated upstream
-.training-sessions-index{
-    margin-bottom: 20px;
-=======
 .training-sessions-index {
     margin-bottom: 2%;
->>>>>>> Stashed changes
     display: flex;
     flex-direction: row;
     width: 106%;
@@ -383,15 +344,11 @@ li.player {
     margin-right: 50%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-<<<<<<< Updated upstream
-    margin-top: 20px;
-=======
 }
 
 .session-info p, .session-info h2 {
     color: var(--second-color);
     font-weight: bold;
->>>>>>> Stashed changes
 }
 
 .presence-info {
@@ -424,15 +381,11 @@ article.training {
     justify-content: space-evenly;
     margin-bottom: 20px;
     transition: transform 0.8s ease;
-<<<<<<< Updated upstream
-        transform: scale(1.1);
-=======
     transform: scale(1.1);
     align-items: center;
     animation: slideInFromBottom 1s ease-out;
     animation-delay: calc(var(--i) * 0.5s);
     list-style: none;
->>>>>>> Stashed changes
 }
 
 .footer-content {
@@ -596,10 +549,6 @@ div.presence-info > ul > li{
         font-size: 3rem;
     }
 
-<<<<<<< Updated upstream
-    h3{
-        font-size: 2rem;
-=======
     #training_session_date{
         width: 100%;
     }
@@ -614,7 +563,6 @@ div.presence-info > ul > li{
 
     h3 {
         font-size: 100%;
->>>>>>> Stashed changes
     }
 
     p{
@@ -635,32 +583,20 @@ div.presence-info > ul > li{
     }
 
     article.training {
-<<<<<<< Updated upstream
-        width: 80%;
-        height: 10%;
-        margin: 0 auto;
-        padding: 10px;
-=======
         width: 95%;
         height: 8%;
         margin: auto;
         padding: 2%;
->>>>>>> Stashed changes
         border: 0.5px solid var(--second-color);
         border-radius: 5px;
         display: flex;
         justify-content: space-evenly;
-<<<<<<< Updated upstream
-        margin-bottom: 20px;
-
-=======
         margin-bottom: 10%;
         margin-left: -3%;
         align-items: center;
     }
     article.training p {
        font-size: 1rem;
->>>>>>> Stashed changes
     }
 
     .session-card{
@@ -698,10 +634,6 @@ div.presence-info > ul > li{
                    width: 80%;
         
     }
-<<<<<<< Updated upstream
-}
-
-=======
 
     .teams {
         width: 90%;
@@ -1453,4 +1385,3 @@ div.presence-info > ul > li{
         }
     }
 }
->>>>>>> Stashed changes

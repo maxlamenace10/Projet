@@ -3,13 +3,6 @@
 {% block body %}
 	<h1>Créer une nouvelle équipe</h1>
 
-<<<<<<< Updated upstream
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
-
-	<button type="submit" class="btn btn-success">Créer</button>
-	{{ form_end(form) }}
-=======
 <div class="formId">
 		{{ form_label(form.TeamName, 'Nom de l\'équipe') }}
         {{ form_widget(form.TeamName, {'attr': {'class': 'form-control'}}) }}
@@ -17,5 +10,4 @@
 	<button type="submit" class="btn btn-success">Créer</button>
 	{{ form_end(form) }}
 </div>
->>>>>>> Stashed changes
 {% endblock %}
