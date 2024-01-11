@@ -4,11 +4,15 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+
+    <div class="formId">
+
+    <h1>Modification du profil</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
 
-        <button type="submit">Save</button>
+        <button type="submit">Enregistrer</button>
     {{ form_end(form) }}
+    </div>
 {% endblock %}

@@ -5,18 +5,18 @@
 {% block body %}
 <div class="session">
     <div class="session-info">
-        <h2>Training Session</h2>
+        <h2>Séance d'entrainement</h2>
 
-        <p>Session Number: {{ training_session.sessionNumber }}</p>
+        <p>Numéro de la séance: {{ training_session.sessionNumber }}</p>
         <p>Date: {{ training_session.date|date('Y-m-d') }}</p>
-        <p>Team: {{ training_session.team.teamName}}</p>
+        <p>Equipe: {{ training_session.team.teamName}}</p>
 
 			{% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('app_training_session_edit', {'id': training_session.id}) }}">Edit</a>
+        <a href="{{ path('app_training_session_edit', {'id': training_session.id}) }}">Modifier</a>
             {% endif %}
 
         {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('app_training_statistic_new', {'sessionTrainingId': training_session.id, 'teamId': training_session.team.id}) }}">New Statistic</a>
+        <a href="{{ path('app_training_statistic_new', {'sessionTrainingId': training_session.id, 'teamId': training_session.team.id}) }}">Statistisques</a>
      {% endif %}
     </div>
 </div>
@@ -27,22 +27,22 @@
     <h3>Présence</h3>
     <ul>
         {% for statistic in training_statistics %}
-        
-        <article class="training">
-            <h3>{{ statistic.user.firstname }} : </h3>
-            <p>
-            {% if statistic.actualDelay == true %}retard {% endif %}
-            </p>
+        <li>
+            <article class="training">
+                <h3>{{ statistic.user.firstname }} : </h3>
+                <p>
+                {% if statistic.actualDelay == true %}retard {% endif %}
+                </p>
 
-            <p>
-            {% if statistic.actualAbsence == true %} absent{% endif %}
-            </p>
-            <p>
-            {% if  statistic.actualPresence == true %} present 
-            {% endif %}
-            </p>
-        </article>
-    
+                <p>
+                {% if statistic.actualAbsence == true %} absent{% endif %}
+                </p>
+                <p>
+                {% if  statistic.actualPresence == true %} present 
+                {% endif %}
+                </p>
+            </article>
+        </li>
         {% endfor %}
     </ul>
     {% else %}

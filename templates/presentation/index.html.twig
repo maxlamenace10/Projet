@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}presentation
+{% endblock %}
+
+{% block body %}
+
+
+<div class="contain">
+    <header>
+        <h2>Bienvenue sur <span>TeamStatsTracker</span> - L'Essence du Football Amateur !</h2>
+    </header>
+
+
+    <section>
+        <p>Vous êtes passionné de football amateur et rêvez de vivre l'expérience du monde professionnel ? Notre plateforme a été créée spécialement pour vous !</p>
+    </section>
+
+    <section>
+
+        <article class="left">
+
+    <img src="{{ asset('image/foot-amateur.webp') }}" alt="foot amateur">
+            <h3>Collecte de Données Approfondie</h3>
+            <p>Explorez notre outil puissant qui vous permet de recueillir des données essentielles pour le football amateur. Nous mettons à votre disposition une mine d'informations précieuses, allant des performances des joueurs aux stratégies d'équipe, afin de vous aider à élever votre jeu.</p>
+        </article>
+
+        <article class="right">
+         <img src="{{ asset('image/foot.jpeg') }}" alt="foot">
+            <h3>Inspirez-vous du Monde Professionnel</h3>
+
+            <p>Plongez dans l'univers professionnel du football en vous inspirant des meilleures pratiques, des analyses de jeu et des tendances émergentes. Notre plateforme vous offre une perspective unique pour renforcer vos stratégies et transformer votre équipe amateur.</p>
+        </article>
+
+        <article class="left">
+         <img src="{{ asset('image/reprise.jpeg') }}" alt="foot amateur">
+            <h3>Communauté Passionnée</h3>
+            <p>Rejoignez une communauté vibrante de passionnés de football amateur. Échangez des idées, partagez vos expériences et collaborez avec d'autres passionnés de football qui partagent la même vision que vous.</p>
+        </article>
+    </section>
+</div>
+    {% endblock %}

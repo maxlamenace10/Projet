@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<h1>Créer une nouvelle équipe</h1>
+	<h2>Créer une nouvelle équipe</h2>
 
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
+<div class="formId">
+		{{ form_label(form.TeamName, 'Nom de l\'équipe') }}
+        {{ form_widget(form.TeamName, {'attr': {'class': 'form-control'}}) }}
 
 	<button type="submit" class="btn btn-success">Créer</button>
 	{{ form_end(form) }}
+</div>
 {% endblock %}
