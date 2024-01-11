@@ -23,15 +23,27 @@
 					<h3>Entrainement :
 						{{ session.sessionNumber }}</h3>
 					<p>Date :
-						{{ session.date|date('Y-m-d H:i:s') }}</p>
+						{{ session.date|date('Y-m-d') }}</p>
 					<p>Equipe :
 						{{ session.team.teamName }}</p>
+<<<<<<< Updated upstream
 					{% if is_granted('ROLE_COACH') %}
 						<a href="{{ path('app_training_session_edit', {id: session.id}) }}" class="btn btn-primary">Modifier</a>
 						<a href="{{ path('app_training_session_delete', {id: session.id}) }}" class="btn btn-danger">Supprimer</a>
 					{% endif %}
 					<a href="{{ path('app_training_session_show', {id: session.id}) }}" class="btn btn-success">Voir</a>
 				</div>
+=======
+						
+					<div class="button">
+						{% if is_granted('ROLE_COACH') %}
+							<a href="{{ path('app_training_session_edit', {id: session.id}) }}" class="btn btn-primary">Modifier</a>
+							<a href="{{ path('app_training_session_delete', {id: session.id}) }}" class="btn btn-danger">Supprimer</a>
+						{% endif %}
+						<a href="{{ path('app_training_session_show', {id: session.id}) }}" class="btn btn-success">Voir</a>
+					</div>
+				</article>
+>>>>>>> Stashed changes
 			{% endfor %}
 		{% endif %}
 	</div>

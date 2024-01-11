@@ -35,7 +35,7 @@ class UserType extends AbstractType
             
         ;       
 
-        $builder->get('profilePicture')->addModelTransformer($this->transformer);
+        // $builder->get('profilePicture')->addModelTransformer($this->transformer);
 
     }
 
