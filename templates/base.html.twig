@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,26 +9,12 @@
 			{% endblock %}
 		</title>
 		{% block stylesheets %}
-			<script src="{{ asset('assets/app.js') }}"></script>
-=======
-	{% block head %}
->>>>>>> Stashed changes
+			<script src="{{ asset('js/app.js') }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!DOCTYPE html>
-	<html lang="fr">
-		<head>
-			<meta charset="UTF-8">
-			<title>
-				{% block title %}TeamStatsTracker!
-				{% endblock %}
-			</title>
-			{% block stylesheets %}	
-				<script src="{{ asset('js/app.js') }}"></script>
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="stylesheet" href="{{ asset('app.css') }}">
-			{% endblock %}
-		</head>
-	{% endblock %}
+			<link rel="stylesheet" href="{{ asset('app.css') }}">
+		{% endblock %}
+	</head>
 
 	{% block nav %}
 		<nav class="navbar">
@@ -39,6 +24,12 @@
 					<h1>TeamStatsTracker</h1>
 				</div>
 			</a>
+
+			<div class="burger">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 			<ul class="nav-links">
 				{% if app.user %}
 					<li>
@@ -52,6 +43,10 @@
 					</li>
 					<li>
 						<a href="{{ path('app_user_edit', {id: app.user.id}) }}">Modifier le profil</a>
+					</li>
+
+					<li>
+						<a href="{{ path('app_presentation') }}">Qui sommes-nous ?</a>
 					</li>
 				{% else %}
 					<li>
@@ -107,12 +102,9 @@
 		</div>
 
 	</html>
-</div>{% endblock %}
-
-{% block footer %}
+</div>{% endblock %}{% block footer %}
 <footer>
 	<div class="footer-content">
 		<p>© 2023 Mon Site. Tous droits réservés.</p>
 	</div>
-</footer>
-{% endblock %}</body></html>
+</footer>{% endblock %}</body></html>
