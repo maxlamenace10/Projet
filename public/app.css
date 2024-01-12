@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 :root {
     --first-color: #fff;
     --second-color: #e1e8ef;
@@ -5,9 +8,6 @@
     --fourth-color: #121e2d;
     --fifth-color: #2676B9;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 
 body {
     background-color: var(--first-color);
@@ -63,6 +63,12 @@ a:hover {
     color: var(--second-color);
 }
 
+div > form > table > tbody > tr > td {
+    color: var(--second-color);
+}
+
+
+
 .head {
     display: flex;
     justify-content: space-between;
@@ -78,7 +84,7 @@ ul.flex-container li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1cqb;
+    padding: 1%;
     color: var(--third-color);
 }
 
@@ -267,7 +273,7 @@ section.button {
     align-content: center;
     margin: auto;
     background-color: var(--fourth-color);
-    border-radius: 5px solid var(--second-color);
+    border-radius: 5px;
     padding: 2%;
     transition: opacity 1s ease-in-out;
     transition-delay: 2s;
@@ -444,9 +450,9 @@ article.training {
 }
 
 .form-container {
-    width: 100px;
+    width: 101%;
     margin: 0 auto;
-    padding: 10px;
+    padding: 0%;
     border-radius: 5px;
     margin-bottom: 2%;
 }
@@ -489,7 +495,7 @@ div.presence-info > ul > li{
 }
 
 .form-container table {
-    width: 100px;
+    width: 50%;
     border-collapse: collapse;
     background: var(--fourth-color);
 }
@@ -501,7 +507,7 @@ div.presence-info > ul > li{
 }
 
 .form-container thead {
-    border: 1px solid var(--first-color);
+    border: 1px solid var(--fourth-color);
 
 }
 
@@ -510,6 +516,8 @@ div.presence-info > ul > li{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    width: 99%;
+    margin: auto;
 }
 .form-container th {
     padding-top: 2%;
@@ -547,6 +555,9 @@ div.presence-info > ul > li{
 .alert.alert-danger {
     color: red;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
 }
 .card {
     width: 40%;

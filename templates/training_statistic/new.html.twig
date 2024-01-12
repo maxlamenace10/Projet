@@ -44,21 +44,5 @@
 			{{ form_end(forms[0]) }}
 		</div>
 	</div>
-	<script>
-		{% for form in forms %}
-document.getElementById('actualDelay  {{ loop.index }}').addEventListener('change', function () {
-if (this.checked) {
-document.getElementById('actualPresence  {{ loop.index }}').checked = true;
-document.getElementById('actualAbsence  {{ loop.index }}').disabled = true;
-} else {
-document.getElementById('actualAbsence  {{ loop.index }}').disabled = false;
-}
-});
 
-document.getElementById('actualPresence  {{ loop.index }}').addEventListener('change', function () {
-if (this.checked) {
-document.getElementById('actualAbsence  {{ loop.index }}').disabled = true;
-}
-});{% endfor %}
-	</script>
 {% endblock %}
